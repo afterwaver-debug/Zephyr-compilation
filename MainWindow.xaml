@@ -1,129 +1,286 @@
+
 <Window x:Class="Zephyr.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Zephyr" Height="690" Width="1020" MinHeight="620" MinWidth="900"
-        WindowStartupLocation="CenterScreen" Background="{StaticResource BackgroundBrush}"
-        Foreground="{StaticResource TextBrush}" FontFamily="Segoe UI">
+        Title="Zephyr"
+        Height="690"
+        Width="1020"
+        MinHeight="620"
+        MinWidth="900"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource BackgroundBrush}"
+        Foreground="{StaticResource TextBrush}"
+        FontFamily="Segoe UI">
+
     <Grid Margin="24">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="220"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Border Grid.Column="0" Background="#100E1A" CornerRadius="18" Padding="18">
+        <!-- Sidebar -->
+        <Border Grid.Column="0"
+                Background="#100E1A"
+                CornerRadius="18"
+                Padding="18">
+
             <DockPanel>
                 <StackPanel DockPanel.Dock="Top">
-                    <Border Width="42" Height="42" CornerRadius="13" Background="#39265F"
-                            HorizontalAlignment="Left" Margin="0,2,0,14">
-                        <TextBlock Text="Z" FontSize="25" FontWeight="Bold"
-                                   Foreground="#D8C6FF" HorizontalAlignment="Center"
+
+                    <Border Width="42"
+                            Height="42"
+                            CornerRadius="13"
+                            Background="#39265F"
+                            HorizontalAlignment="Left"
+                            Margin="0,2,0,14">
+
+                        <TextBlock Text="Z"
+                                   FontSize="25"
+                                   FontWeight="Bold"
+                                   Foreground="#D8C6FF"
+                                   HorizontalAlignment="Center"
                                    VerticalAlignment="Center"/>
                     </Border>
-                    <TextBlock Text="ZEPHYR" FontSize="21" FontWeight="Bold" LetterSpacing="2"/>
-                    <TextBlock Text="ROBLOX LAUNCHER" FontSize="9" Foreground="{StaticResource MutedBrush}"
+
+                    <TextBlock Text="ZEPHYR"
+                               FontSize="21"
+                               FontWeight="Bold"/>
+
+                    <TextBlock Text="ROBLOX LAUNCHER"
+                               FontSize="9"
+                               Foreground="{StaticResource MutedBrush}"
                                Margin="1,2,0,28"/>
-                    <TextBlock Text="WORKSPACE" FontSize="10" Foreground="#766D89"
-                               FontWeight="Bold" Margin="0,0,0,10"/>
-                    <Border Background="#2A2140" CornerRadius="9" Padding="11,10">
-                        <TextBlock Text="◈   Overview" FontWeight="SemiBold" Foreground="#D8C6FF"/>
+
+                    <TextBlock Text="WORKSPACE"
+                               FontSize="10"
+                               Foreground="#766D89"
+                               FontWeight="Bold"
+                               Margin="0,0,0,10"/>
+
+                    <Border Background="#2A2140"
+                            CornerRadius="9"
+                            Padding="11,10">
+
+                        <TextBlock Text="◈   Overview"
+                                   FontWeight="SemiBold"
+                                   Foreground="#D8C6FF"/>
                     </Border>
                 </StackPanel>
+
                 <StackPanel DockPanel.Dock="Bottom">
-                    <TextBlock Text="VERSION 1.0.0" FontSize="10" Foreground="#766D89"
+                    <TextBlock Text="VERSION 1.0.0"
+                               FontSize="10"
+                               Foreground="#766D89"
                                Margin="0,0,0,5"/>
-                    <TextBlock Text="A lightweight companion" FontSize="10"
+
+                    <TextBlock Text="A lightweight companion"
+                               FontSize="10"
                                Foreground="#766D89"/>
                 </StackPanel>
             </DockPanel>
         </Border>
 
-        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
-            <StackPanel Margin="26,5,0,8">
-                <TextBlock Text="Good to see you." FontSize="29" FontWeight="Bold"/>
-                <TextBlock Text="A cleaner way to launch and tune your Roblox session."
-                           Foreground="{StaticResource MutedBrush}" FontSize="13" Margin="0,5,0,22"/>
+        <!-- Main Content -->
+        <ScrollViewer Grid.Column="1"
+                      VerticalScrollBarVisibility="Auto">
 
-                <Border Background="{StaticResource PanelBrush}" CornerRadius="16" Padding="22" Margin="0,0,0,16">
+            <StackPanel Margin="26,5,0,8">
+
+                <TextBlock Text="Good to see you."
+                           FontSize="29"
+                           FontWeight="Bold"/>
+
+                <TextBlock Text="A cleaner way to launch and tune your Roblox session."
+                           Foreground="{StaticResource MutedBrush}"
+                           FontSize="13"
+                           Margin="0,5,0,22"/>
+
+                <!-- Roblox Status -->
+                <Border Background="{StaticResource PanelBrush}"
+                        CornerRadius="16"
+                        Padding="22"
+                        Margin="0,0,0,16">
+
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
+
                         <StackPanel VerticalAlignment="Center">
-                            <TextBlock Text="ROBLOX STATUS" FontSize="10" FontWeight="Bold"
+
+                            <TextBlock Text="ROBLOX STATUS"
+                                       FontSize="10"
+                                       FontWeight="Bold"
                                        Foreground="{StaticResource MutedBrush}"/>
-                            <TextBlock x:Name="StatusText" Text="Checking Roblox..." FontSize="20"
-                                       FontWeight="SemiBold" Margin="0,7,0,4"/>
-                            <TextBlock x:Name="InstallText" Text="Looking for the Roblox installation"
-                                       Foreground="{StaticResource MutedBrush}" FontSize="11"
-                                       TextWrapping="Wrap" MaxWidth="470"/>
+
+                            <TextBlock x:Name="StatusText"
+                                       Text="Checking Roblox..."
+                                       FontSize="20"
+                                       FontWeight="SemiBold"
+                                       Margin="0,7,0,4"/>
+
+                            <TextBlock x:Name="InstallText"
+                                       Text="Looking for the Roblox installation"
+                                       Foreground="{StaticResource MutedBrush}"
+                                       FontSize="11"
+                                       TextWrapping="Wrap"
+                                       MaxWidth="470"/>
                         </StackPanel>
-                        <Border Grid.Column="1" Width="12" Height="12" CornerRadius="6"
-                                Background="#E0B45B" VerticalAlignment="Center" Margin="20,0,4,0"
-                                x:Name="StatusDot"/>
+
+                        <Border x:Name="StatusDot"
+                                Grid.Column="1"
+                                Width="12"
+                                Height="12"
+                                CornerRadius="6"
+                                Background="#E0B45B"
+                                VerticalAlignment="Center"
+                                Margin="20,0,4,0"/>
                     </Grid>
                 </Border>
 
-                <Border Background="{StaticResource PanelBrush}" CornerRadius="16" Padding="22" Margin="0,0,0,16">
+                <!-- Quick Launch -->
+                <Border Background="{StaticResource PanelBrush}"
+                        CornerRadius="16"
+                        Padding="22"
+                        Margin="0,0,0,16">
+
                     <StackPanel>
-                        <TextBlock Text="QUICK LAUNCH" FontSize="10" FontWeight="Bold"
+
+                        <TextBlock Text="QUICK LAUNCH"
+                                   FontSize="10"
+                                   FontWeight="Bold"
                                    Foreground="{StaticResource MutedBrush}"/>
-                        <TextBlock Text="Jump into Roblox" FontSize="19" FontWeight="SemiBold" Margin="0,7,0,5"/>
+
+                        <TextBlock Text="Jump into Roblox"
+                                   FontSize="19"
+                                   FontWeight="SemiBold"
+                                   Margin="0,7,0,5"/>
+
                         <TextBlock Text="Opens the official Roblox website. Choose an experience there and press Play."
-                                   Foreground="{StaticResource MutedBrush}" FontSize="12"
-                                   TextWrapping="Wrap" Margin="0,0,0,16"/>
+                                   Foreground="{StaticResource MutedBrush}"
+                                   FontSize="12"
+                                   TextWrapping="Wrap"
+                                   Margin="0,0,0,16"/>
+
                         <WrapPanel>
-                            <Button Content="Launch Roblox  →" Background="#7046C8"
-                                    BorderBrush="#8D67E0" Click="Launch_Click" Margin="0,0,10,0"/>
-                            <Button Content="Open Roblox folder" Click="Folder_Click"/>
+                            <Button Content="Launch Roblox  →"
+                                    Background="#7046C8"
+                                    BorderBrush="#8D67E0"
+                                    Click="Launch_Click"
+                                    Margin="0,0,10,0"/>
+
+                            <Button Content="Open Roblox folder"
+                                    Click="Folder_Click"/>
                         </WrapPanel>
                     </StackPanel>
                 </Border>
 
-                <Border Background="{StaticResource PanelBrush}" CornerRadius="16" Padding="22" Margin="0,0,0,16">
+                <!-- Performance Profile -->
+                <Border Background="{StaticResource PanelBrush}"
+                        CornerRadius="16"
+                        Padding="22"
+                        Margin="0,0,0,16">
+
                     <StackPanel>
-                        <TextBlock Text="PERFORMANCE PROFILE" FontSize="10" FontWeight="Bold"
+
+                        <TextBlock Text="PERFORMANCE PROFILE"
+                                   FontSize="10"
+                                   FontWeight="Bold"
                                    Foreground="{StaticResource MutedBrush}"/>
-                        <TextBlock Text="Process priority" FontSize="19" FontWeight="SemiBold" Margin="0,7,0,5"/>
+
+                        <TextBlock Text="Process priority"
+                                   FontSize="19"
+                                   FontWeight="SemiBold"
+                                   Margin="0,7,0,5"/>
+
                         <TextBlock Text="Controls the scheduling priority of the Roblox client process. Above Normal is a modest preference, not a guaranteed FPS boost."
-                                   Foreground="{StaticResource MutedBrush}" FontSize="12"
-                                   TextWrapping="Wrap" Margin="0,0,0,15"/>
+                                   Foreground="{StaticResource MutedBrush}"
+                                   FontSize="12"
+                                   TextWrapping="Wrap"
+                                   Margin="0,0,0,15"/>
+
                         <WrapPanel VerticalAlignment="Center">
-                            <ComboBox x:Name="PriorityBox" SelectedIndex="1" Width="170" Margin="0,0,12,0">
+
+                            <ComboBox x:Name="PriorityBox"
+                                      SelectedIndex="1"
+                                      Width="170"
+                                      Margin="0,0,12,0">
+
                                 <ComboBoxItem Content="Normal"/>
                                 <ComboBoxItem Content="Above Normal"/>
                             </ComboBox>
-                            <Button Content="Apply to running Roblox" Click="ApplyPriority_Click"/>
+
+                            <Button Content="Apply to running Roblox"
+                                    Click="ApplyPriority_Click"/>
                         </WrapPanel>
-                        <CheckBox x:Name="AutoApplyCheck" Content="Automatically apply when Roblox starts"
-                                  IsChecked="True" Margin="0,16,0,0"/>
+
+                        <CheckBox x:Name="AutoApplyCheck"
+                                  Content="Automatically apply when Roblox starts"
+                                  IsChecked="True"
+                                  Margin="0,16,0,0"/>
                     </StackPanel>
                 </Border>
 
-                <Border Background="{StaticResource PanelBrush}" CornerRadius="16" Padding="22" Margin="0,0,0,16">
+                <!-- Windows Gaming -->
+                <Border Background="{StaticResource PanelBrush}"
+                        CornerRadius="16"
+                        Padding="22"
+                        Margin="0,0,0,16">
+
                     <StackPanel>
-                        <TextBlock Text="WINDOWS GAMING" FontSize="10" FontWeight="Bold"
+
+                        <TextBlock Text="WINDOWS GAMING"
+                                   FontSize="10"
+                                   FontWeight="Bold"
                                    Foreground="{StaticResource MutedBrush}"/>
-                        <TextBlock Text="System-level settings" FontSize="19" FontWeight="SemiBold" Margin="0,7,0,12"/>
+
+                        <TextBlock Text="System-level settings"
+                                   FontSize="19"
+                                   FontWeight="SemiBold"
+                                   Margin="0,7,0,12"/>
+
                         <WrapPanel>
-                            <Button Content="Game Mode settings" Click="GameMode_Click" Margin="0,0,10,10"/>
-                            <Button Content="Graphics settings" Click="Graphics_Click" Margin="0,0,0,10"/>
+                            <Button Content="Game Mode settings"
+                                    Click="GameMode_Click"
+                                    Margin="0,0,10,10"/>
+
+                            <Button Content="Graphics settings"
+                                    Click="Graphics_Click"
+                                    Margin="0,0,0,10"/>
                         </WrapPanel>
                     </StackPanel>
                 </Border>
 
-                <Border Background="#171421" BorderBrush="#3A3151" BorderThickness="1"
-                        CornerRadius="12" Padding="15">
+                <!-- Information -->
+                <Border Background="#171421"
+                        BorderBrush="#3A3151"
+                        BorderThickness="1"
+                        CornerRadius="12"
+                        Padding="15">
+
                     <StackPanel>
-                        <TextBlock Text="A QUICK NOTE" FontWeight="Bold" FontSize="11" Foreground="#D8C6FF"/>
+
+                        <TextBlock Text="A QUICK NOTE"
+                                   FontWeight="Bold"
+                                   FontSize="11"
+                                   Foreground="#D8C6FF"/>
+
                         <TextBlock Text="Zephyr does not inject code, modify Roblox memory, or apply undocumented FastFlags. FPS depends on your hardware, game, graphics settings and thermal limits. Close this app any time; Roblox keeps running."
-                                   TextWrapping="Wrap" FontSize="11" Foreground="{StaticResource MutedBrush}"
+                                   TextWrapping="Wrap"
+                                   FontSize="11"
+                                   Foreground="{StaticResource MutedBrush}"
                                    Margin="0,6,0,0"/>
                     </StackPanel>
                 </Border>
 
-                <TextBlock x:Name="LogText" Text="Ready." Foreground="{StaticResource MutedBrush}"
-                           FontSize="10" Margin="2,12,0,0"/>
+                <!-- Activity Log -->
+                <TextBlock x:Name="LogText"
+                           Text="Ready."
+                           Foreground="{StaticResource MutedBrush}"
+                           FontSize="10"
+                           Margin="2,12,0,0"/>
+
             </StackPanel>
         </ScrollViewer>
     </Grid>
